@@ -54,7 +54,6 @@ class Replay(object):
         self.replay_id = self.data[0]
         self._decode_headers(self.data[1])
         self._decode_actions(self.data[2])
-
     def __str__(self):
         return '<Replay: %s>' % self.game_name
 
@@ -92,6 +91,12 @@ class Replay(object):
         '''Takes a header binary string and assigns the different
         attributes.  No return value.'''
         t = struct.unpack(HEADER_STRUCT_FORMAT, data)
+        
+        print "xxxxxxxxxxxxxxxxxxxxxxxx"
+        print from_nullstr(t[3])
+
+        #raise InvalidReplayException('Replay id is corrupted')
+        
         self.game_engine = t[0]
         self.game_frames = t[1]
         self.timestamp   = t[2]
