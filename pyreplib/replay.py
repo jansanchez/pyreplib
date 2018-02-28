@@ -92,8 +92,8 @@ class Replay(object):
         attributes.  No return value.'''
         t = struct.unpack(HEADER_STRUCT_FORMAT, data)
         
-        print "xxxxxxxxxxxxxxxxxxxxxxxx"
-        print from_nullstr(t[3])
+        #print "xxxxxxxxxxxxxxxxxxxxxxxx"
+        #print from_nullstr(t[3])
 
         #raise InvalidReplayException('Replay id is corrupted')
         
