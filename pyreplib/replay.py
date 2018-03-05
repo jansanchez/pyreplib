@@ -140,8 +140,16 @@ class Replay(object):
                     buf.read(block_length)
                     break
                 action = action_cls(tick)
-                player = players[player_id]
-                player.actions.append(action)
+
+                player = None
+                
+                if player_id in players:
+                    player = players[player_id]
+                    player.actions.append(action)
+                
+                if player is None:
+                    break
+                
                 n = action.read(buf)
                 block_length -= n
 
